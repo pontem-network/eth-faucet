@@ -16,9 +16,9 @@ const HeaderDiv = styled("div")(({ theme }) => ({
 export const Header = () => {
   return (
     <HeaderDiv>
-      <Typography variant="h1">Claim Görli ETH</Typography>
+      <Typography variant="h1">Claim PONTEM L2 ETH</Typography>
       <Typography variant="body2">
-        <b>Görli ETH has no monetary value.</b> It means you can’t sell or exchange it for any goods or services. The
+        <b>PONTEM L2 ETH has no monetary value.</b> It means you can’t sell or exchange it for any goods or services. The
         only utility it has is testing your decentralized application (DApp).
       </Typography>
     </HeaderDiv>

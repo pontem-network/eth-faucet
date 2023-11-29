@@ -62,7 +62,7 @@ const Home: NextPage = () => {
       case "success":
         return (
           <Alert severity="success">
-            Görli ETH has been dispatched to your wallet. You should receive it within 3 minutes.
+            Pontem L2 ETH has been dispatched to your wallet. You should receive it within 3 minutes.
           </Alert>
         )
       case "error":
@@ -79,7 +79,7 @@ const Home: NextPage = () => {
         <span>{balance ? formatEther(balance) : <>&ndash;</>} ETH (testnet)</span>
       </Item>
       <Item>
-        <span>Claimable Görli ETH</span>
+        <span>Claimable Pontem L2 ETH</span>
         <span>{formatEther(retrieveAmount(account))} ETH (testnet)</span>
       </Item>
       <ClaimButton onSuccess={handleSuccess} onError={handleError} />

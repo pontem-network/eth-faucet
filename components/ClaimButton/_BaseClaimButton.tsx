@@ -65,17 +65,17 @@ export const BaseClaimButton = ({ onSuccess, onError, retrieveCaptcha }: BaseCla
     )
   }
 
-  if (chainId !== Goerli.chainId) {
+  if (chainId !== 901) {
     return (
-      <Button variant="contained" onClick={() => switchNetwork(Goerli.chainId)} fullWidth>
-        Switch to Görli network
+      <Button variant="contained" onClick={() => switchNetwork(901)} fullWidth>
+        Switch to PONTEM L2 network
       </Button>
     )
   }
 
   return (
     <Button variant="contained" onClick={claimGorliEth} fullWidth>
-      Claim Görli ETH
+      Claim PONTEM L2 ETH
     </Button>
   )
 }

@@ -11,7 +11,7 @@ import { pollingInterval } from "../consts/env"
 import { CaptchaProvider } from "../components/CaptchaProvider"
 
 const config: Config = {
-  readOnlyChainId: Goerli.chainId,
+  readOnlyChainId: 901,
   readOnlyUrls: {
     [Goerli.chainId]: process.env.NEXT_PUBLIC_ETH_API_URL as string
   },
@@ -22,7 +22,7 @@ const theme = createTheme()
 const EthereumFaucet = ({ Component, pageProps }: AppProps) => (
   <>
     <Head>
-      <title>Claim Görli ETH</title>
+      <title>Claim Pontem L2 ETH</title>
     </Head>
     <CaptchaProvider>
       <DAppProvider config={config}>
@@ -32,9 +32,11 @@ const EthereumFaucet = ({ Component, pageProps }: AppProps) => (
             <Content>
               <Header />
               <Component {...pageProps} />
-              <OpenSourceMemo />
+              {/*<OpenSourceMemo />*/}
             </Content>
+{/*
             <Footer />
+*/}
           </Layout>
         </ThemeProvider>
       </DAppProvider>
