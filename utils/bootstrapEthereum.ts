@@ -6,7 +6,7 @@ import { TimestampNonce } from "../services/TimestampNonce"
 import { WalletClassification } from "../services/WalletClassification"
 import { bootstrapTransactionHistory, TransactionHistoryType } from "./bootstrapTransactionHistory"
 
-export const bootstrapEthereum = (chainId: number = Goerli.chainId) => {
+export const bootstrapEthereum = (chainId: number = 901) => {
   // Wallet Classification Service
   const classificationService = new WalletClassification(privilegedWallets)
 

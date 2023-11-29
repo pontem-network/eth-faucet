@@ -1,6 +1,6 @@
 import { Button } from "@mui/material"
 import LoadingButton from "@mui/lab/LoadingButton"
-import { Goerli, useEthers } from "@usedapp/core"
+import { PontemL2, useEthers } from "@usedapp/core"
 import { isNil } from "lodash"
 import Link from "next/link"
 import { hasMetamask } from "../../hooks/hasMetamask"
@@ -39,6 +39,8 @@ export const BaseClaimButton = ({ onSuccess, onError, retrieveCaptcha }: BaseCla
         return
       }
 
+      console.log(e);
+
       onError(e?.message || "Something went wrong")
     }
   }
@@ -65,9 +67,9 @@ export const BaseClaimButton = ({ onSuccess, onError, retrieveCaptcha }: BaseCla
     )
   }
 
-  if (chainId !== 901) {
+  if (chainId !== PontemL2.chainId) {
     return (
-      <Button variant="contained" onClick={() => switchNetwork(901)} fullWidth>
+      <Button variant="contained" onClick={() => switchNetwork(PontemL2.chainId)} fullWidth>
         Switch to PONTEM L2 network
       </Button>
     )
