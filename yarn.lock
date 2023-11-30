@@ -1564,9 +1564,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@usedapp/core@file:/Users/dmitrijkuksenko/pontem/useDApp/packages/core::locator=eth-faucet%40workspace%3A.":
+"@usedapp/core@file:../useDappCore::locator=eth-faucet%40workspace%3A.":
   version: 1.2.14
-  resolution: "@usedapp/core@file:/Users/dmitrijkuksenko/pontem/useDApp/packages/core#/Users/dmitrijkuksenko/pontem/useDApp/packages/core::hash=446f79&locator=eth-faucet%40workspace%3A."
+  resolution: "@usedapp/core@file:../useDappCore#../useDappCore::hash=9e7602&locator=eth-faucet%40workspace%3A."
   dependencies:
     "@metamask/detect-provider": ^2.0.0
     "@uniswap/token-lists": ^1.0.0-beta.27
@@ -1579,7 +1579,7 @@ __metadata:
     react: "*"
   bin:
     usedapp-generate-hooks: ./bin/usedapp-generate-hooks.js
-  checksum: 5404716a779dd0414dd53d95a726123366e86463252eb8eca5c79c7600efa7936d75b0e86c9717beb667de1efdad5cd1f543e3a89da21bd044e5629e7266e0e6
+  checksum: 58193b027bb092e9ac1b46abbf7a305bd15293a07f28555ac17289a42ff491275687e32c17994758a3176cbdae41d3b8bf451506a23a040fc88f50dbcf98fd5e
   languageName: node
   linkType: hard
 
@@ -2761,7 +2761,7 @@ axios@latest:
     "@types/react": 18.0.9
     "@types/react-dom": 18.0.4
     "@types/request-ip": latest
-    "@usedapp/core": /Users/dmitrijkuksenko/pontem/useDApp/packages/core
+    "@usedapp/core": ../useDappCore
     axios: latest
     eslint: 8.16.0
     eslint-config-next: 12.1.6
