@@ -1,10 +1,14 @@
 The `eth-faucet` is a developer tool to get testnet Ether (ETH) in order to test and troubleshoot your decentralized application (DApp) before going live on Ethereum mainnet, where you must use real ETH.
 
-![Screenshot](./screenshot.png)
+<img width="926" alt="Screenshot 2023-11-30 at 17 39 31" src="https://github.com/pontem-network/eth-faucet/assets/25219331/4ca8446d-b40c-4f35-a0d6-2c7712dd13b8">
 
 Live version: **[eth-faucet-alpha.vercel.app](https://eth-faucet-alpha.vercel.app)**
 
 ## Getting Started
+
+0. Unzip useDappCore alongside with project directory. This build contains Pontem Network L2 config. 
+[useDappCore.zip](https://github.com/pontem-network/eth-faucet/files/13521427/useDappCore.zip)
+
 
 1. First, create a new Ethereum wallet:
 
