@@ -1564,9 +1564,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@usedapp/core@file:../useDappCore::locator=eth-faucet%40workspace%3A.":
-  version: 1.2.14
-  resolution: "@usedapp/core@file:../useDappCore#../useDappCore::hash=9e7602&locator=eth-faucet%40workspace%3A."
+"@usedapp/core@file:../useDapp/packages/core::locator=eth-faucet%40workspace%3A.":
+  version: 1.2.15
+  resolution: "@usedapp/core@file:../useDapp/packages/core#../useDapp/packages/core::hash=d8b11d&locator=eth-faucet%40workspace%3A."
   dependencies:
     "@metamask/detect-provider": ^2.0.0
     "@uniswap/token-lists": ^1.0.0-beta.27
@@ -1579,7 +1579,7 @@ __metadata:
     react: "*"
   bin:
     usedapp-generate-hooks: ./bin/usedapp-generate-hooks.js
-  checksum: 58193b027bb092e9ac1b46abbf7a305bd15293a07f28555ac17289a42ff491275687e32c17994758a3176cbdae41d3b8bf451506a23a040fc88f50dbcf98fd5e
+  checksum: 5cc01f87666bc2d90ac644e3784be9bf5151d2b8c121d3c556b6b126213e34912939cb405fe95dbba56424bf18ee4d4273d25d0917af36cb7129b45f3175b047
   languageName: node
   linkType: hard
 
@@ -2761,7 +2761,7 @@ axios@latest:
     "@types/react": 18.0.9
     "@types/react-dom": 18.0.4
     "@types/request-ip": latest
-    "@usedapp/core": ../useDappCore
+    "@usedapp/core": ../useDapp/packages/core
     axios: latest
     eslint: 8.16.0
     eslint-config-next: 12.1.6
