@@ -1,11 +1,11 @@
-import { Button } from "@mui/material"
 import LoadingButton from "@mui/lab/LoadingButton"
-import { Goerli, useEthers } from "@usedapp/core"
+import { PontemL2, useEthers } from "@usedapp/core"
 import { isNil } from "lodash"
 import Link from "next/link"
 import { hasMetamask } from "../../hooks/hasMetamask"
 import { claimTokens, retrieveNonce } from "../../services/HttpClient"
 import { messageTemplate } from "../../utils/textMessage"
+import { Button } from './Button';
 
 type BaseClaimButtonProps = {
   onSuccess: () => void
@@ -17,7 +17,7 @@ export const BaseClaimButton = ({ onSuccess, onError, retrieveCaptcha }: BaseCla
   const { account, library, isLoading: loading, activateBrowserWallet, switchNetwork, chainId } = useEthers()
   const installed = hasMetamask()
 
-  const claimGorliEth = async () => {
+  const claimPontemL2Eth = async () => {
     try {
       if (isNil(library) || isNil(account)) {
         throw new Error("Wallet is not connected")
@@ -39,6 +39,8 @@ export const BaseClaimButton = ({ onSuccess, onError, retrieveCaptcha }: BaseCla
         return
       }
 
+      console.log(e);
+
       onError(e?.message || "Something went wrong")
     }
   }
@@ -46,7 +48,7 @@ export const BaseClaimButton = ({ onSuccess, onError, retrieveCaptcha }: BaseCla
   if (!installed) {
     return (
       <Link href="https://metamask.io/download/" passHref>
-        <Button variant="contained" fullWidth>
+        <Button >
           Install MetaMask
         </Button>
       </Link>
@@ -54,28 +56,28 @@ export const BaseClaimButton = ({ onSuccess, onError, retrieveCaptcha }: BaseCla
   }
 
   if (loading) {
-    return <LoadingButton variant="contained" loading fullWidth />
+    return <LoadingButton variant="contained" loading  />
   }
 
   if (!account) {
     return (
-      <Button variant="contained" onClick={() => activateBrowserWallet()} fullWidth>
+      <Button onClick={() => activateBrowserWallet()} >
         Connect wallet
       </Button>
     )
   }
 
-  if (chainId !== Goerli.chainId) {
+  if (chainId !== PontemL2.chainId) {
     return (
-      <Button variant="contained" onClick={() => switchNetwork(Goerli.chainId)} fullWidth>
-        Switch to Görli network
+      <Button onClick={() => switchNetwork(PontemL2.chainId)} >
+        Switch to PONTEM L2 network
       </Button>
     )
   }
 
   return (
-    <Button variant="contained" onClick={claimGorliEth} fullWidth>
-      Claim Görli ETH
+    <Button onClick={claimPontemL2Eth} >
+      Claim PONTEM L2 ETH
     </Button>
   )
 }
