@@ -2,8 +2,7 @@ import type { AppProps } from "next/app"
 import { createTheme, CssBaseline, ThemeProvider } from "@mui/material"
 import { PontemL2, DAppProvider, Config } from "@usedapp/core"
 import Head from "next/head"
-import { OpenSourceMemo } from "../components/OpenSourceMemo"
-import { Header } from "../components/Header"
+import { FormHeader } from "../components/FormHeader"
 import { Footer } from "../components/Footer"
 import { Layout } from "../components/Layout"
 import { Content } from "../components/Content"
@@ -30,13 +29,11 @@ const EthereumFaucet = ({ Component, pageProps }: AppProps) => (
           <CssBaseline />
           <Layout>
             <Content>
-              <Header />
+              <FormHeader />
               <Component {...pageProps} />
               {/*<OpenSourceMemo />*/}
             </Content>
-{/*
             <Footer />
-*/}
           </Layout>
         </ThemeProvider>
       </DAppProvider>

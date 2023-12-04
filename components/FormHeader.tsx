@@ -13,7 +13,7 @@ const HeaderDiv = styled("div")(({ theme }) => ({
   }
 }))
 
-export const Header = () => {
+export const FormHeader = () => {
   return (
     <HeaderDiv>
       <Typography variant="h1">Claim PONTEM L2 ETH</Typography>
