@@ -6,6 +6,7 @@ import { hasMetamask } from "../../hooks/hasMetamask"
 import { claimTokens, retrieveNonce } from "../../services/HttpClient"
 import { messageTemplate } from "../../utils/textMessage"
 import { Button } from './Button';
+import { JsonRpcProvider } from "@ethersproject/providers";
 
 type BaseClaimButtonProps = {
   onSuccess: () => void
@@ -28,7 +29,7 @@ export const BaseClaimButton = ({ onSuccess, onError, retrieveCaptcha }: BaseCla
       const nonce = await retrieveNonce()
       const message = messageTemplate(nonce)
 
-      const signer = library.getSigner()
+      const signer = (library as JsonRpcProvider).getSigner()
       const signature = await signer.signMessage(message)
 
       await claimTokens(account as string, message, signature, captchaToken)
