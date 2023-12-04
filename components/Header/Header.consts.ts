@@ -1,5 +1,3 @@
-export const WALLET_ONELINK = 'https://onelink.to/t3sae5';
-
 export const headerLinksList = [
     {
         desktopIcon: 'swap',
@@ -21,7 +19,7 @@ export const headerLinksList = [
         ],
     },
     {
-        desktopIcon: 'Claim',
+        desktopIcon: 'claim',
         label: 'Claim',
         name: 'claim',
         url: '/',

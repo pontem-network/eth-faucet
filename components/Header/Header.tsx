@@ -53,6 +53,20 @@ const StyledSocialButton = styled(SocialButton)`
     @media screen and (max-width: 1167px) {
         display: none;
     }
+
+  width: 40px;
+  height: 40px!important;
+  padding: 0;
+  border: none;
+  color: var(--gray-300)!important;
+  background-color: #14142f!important;
+  transition: color,background-color 0.15s ease;
+  border-radius: 50%;
+
+  &:hover > div {
+    background-color: var(--gray-300);
+    color: var(--gray-300)
+  }
 `;
 
 export const Header: FC = () => {
@@ -76,7 +90,6 @@ export const Header: FC = () => {
         <StyledHeaderActions>
             <MobileMenu />
             <StyledSocialButton
-                className="ml-3 p-button-rounded p-button-secondary"
                 icon="pi pi-ellipsis-h"
                 iconType="ellipsis"
                 onClick={toggleSocialMenu}

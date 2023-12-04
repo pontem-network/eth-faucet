@@ -32,7 +32,7 @@ const StyledSocialMenu = styled(Menu)`
 
     background-color: #28253e !important;
 
-    & .social-menu__item {
+    .p-menuitem {
         border-radius: 0.5rem;
 
         transition: background-color 0.15s ease;

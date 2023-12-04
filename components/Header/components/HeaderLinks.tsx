@@ -5,7 +5,7 @@ import { Menu } from 'primereact/menu';
 import { headerLinksList } from '../Header.consts';
 
 import angleSvg from '../assets/angle.svg';
-import bridgeSvg from '../assets/bridge.svg';
+import claimSvg from '../assets/claim.svg';
 import earnSvg from '../assets/earn.svg';
 import farmsSvg from '../assets/farms.svg';
 import poolsSvg from '../assets/pools.svg';
@@ -73,7 +73,9 @@ const StyledLinksListItem = styled.li`
     transition: background-color 0.15s ease;
     will-change: background-color, color;
 
-    &.active ${StyledHeaderLink},
+    &.active ${StyledHeaderLink} {
+      background-color: #4a495e;
+    },
     &:hover ${StyledHeaderLink} {
         background-color: #4a495e;
         color: #fff;
@@ -166,11 +168,11 @@ const StyledLinkAngle = styled.i<StyledLinkAngleProps>`
 `;
 
 interface StyledLinkIconType {
-    type: 'bridge' | 'earn' | 'stats' | 'swap';
+    type: 'claim' | 'earn' | 'stats' | 'swap';
 }
 
 const linkIconTypeToImageMap: Record<StyledLinkIconType['type'], string> = {
-    bridge: bridgeSvg.src,
+    claim: claimSvg.src,
     earn: earnSvg.src,
     stats: statsSvg.src,
     swap: swapWideSvg.src,
@@ -188,9 +190,9 @@ const StyledLinkIcon = styled.div<StyledLinkIconType>`
 
     will-change: background-color;
 
-    .active & {
-        background-color: var(--primary-color-text);
-    }
+    //.active & {
+    //    background-color: var(--primary-color-text);
+    //}
 `;
 
 const StyledLinkDropdown = styled(Menu)`
@@ -267,9 +269,6 @@ const StyledLinkDropdown = styled(Menu)`
           -webkit-mask-image: url('${stakingSvg.src}');
         }
 
-        .active & {
-          background-color: var(--primary-color-text);
-        }
     }
 `;
 
