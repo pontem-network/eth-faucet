@@ -17,7 +17,7 @@ export const BaseClaimButton = ({ onSuccess, onError, retrieveCaptcha }: BaseCla
   const { account, library, isLoading: loading, activateBrowserWallet, switchNetwork, chainId } = useEthers()
   const installed = hasMetamask()
 
-  const claimGorliEth = async () => {
+  const claimPontemL2Eth = async () => {
     try {
       if (isNil(library) || isNil(account)) {
         throw new Error("Wallet is not connected")
@@ -76,7 +76,7 @@ export const BaseClaimButton = ({ onSuccess, onError, retrieveCaptcha }: BaseCla
   }
 
   return (
-    <Button variant="contained" onClick={claimGorliEth} fullWidth>
+    <Button variant="contained" onClick={claimPontemL2Eth} fullWidth>
       Claim PONTEM L2 ETH
     </Button>
   )
