@@ -15,6 +15,7 @@ export const Button = styled.button `
   background-image: linear-gradient(90deg, #6e42ca 0%, #8d29c1 100%);
   z-index: 1;
   font-weight: 500;
+  cursor: pointer;
 
   &::after {
     position: absolute;

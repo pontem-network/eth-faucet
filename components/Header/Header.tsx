@@ -58,14 +58,14 @@ const StyledSocialButton = styled(SocialButton)`
   height: 40px!important;
   padding: 0;
   border: none;
-  color: var(--gray-300)!important;
+  color: #e0e0e0;
   background-color: #14142f!important;
   transition: color,background-color 0.15s ease;
   border-radius: 50%;
 
   &:hover > div {
-    background-color: var(--gray-300);
-    color: var(--gray-300)
+    background-color: #e0e0e0;
+    color: #e0e0e0;
   }
 `;
 
