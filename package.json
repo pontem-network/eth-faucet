@@ -16,7 +16,7 @@
     "@mui/icons-material": "latest",
     "@mui/lab": "latest",
     "@mui/material": "latest",
-    "@usedapp/core": "./plugins/useDappCore",
+    "@usedapp/core": "file:./plugins/useDappCore",
     "axios": "latest",
     "ethers": "latest",
     "ioredis": "latest",

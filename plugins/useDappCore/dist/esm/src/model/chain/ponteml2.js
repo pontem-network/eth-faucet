@@ -5,7 +5,7 @@ export const PontemL2 = {
     chainName: 'Pontem L2 testnet',
     isTestChain: true,
     isLocalChain: false,
-    multicallAddress: '0xEb533ee5687044E622C69c58B1B12329F56eD9ad',
+    multicallAddress: '0xcA11bde05977b3631167028862bE2a173976CA11',
     rpcUrl: 'https://magic.devops.mom/proxyd',
     nativeCurrency: {
         name: 'Ether',
