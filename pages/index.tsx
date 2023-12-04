@@ -4,8 +4,8 @@ import { useEtherBalance, useEthers } from "@usedapp/core"
 import { useCallback, useReducer } from "react"
 import { Alert } from "../components/Alert"
 import { ClaimButton } from "../components/ClaimButton"
-import { Item } from "../components/Item"
-import { RoundedBox } from "../components/RoundedBox"
+import { Item, ItemsWrapper } from "../components/Item"
+import { FormWrapper }  from "../components/RoundedBox"
 import { useWalletClassification } from "../hooks/useWalletClassification"
 
 type Action =
@@ -73,18 +73,20 @@ const Home: NextPage = () => {
   }, [state.status])
 
   return (
-    <RoundedBox>
-      <Item>
-        <span>Wallet balance</span>
-        <span>{balance ? formatEther(balance) : <>&ndash;</>} ETH (testnet)</span>
-      </Item>
-      <Item>
-        <span>Claimable Pontem L2 ETH</span>
-        <span>{formatEther(retrieveAmount(account))} ETH (testnet)</span>
-      </Item>
+    <FormWrapper>
+      <ItemsWrapper>
+        <Item>
+          <span>Wallet balance</span>
+          <span>{balance ? formatEther(balance) : <>&ndash;</>} ETH (testnet)</span>
+        </Item>
+        <Item>
+          <span>Claimable Pontem L2 ETH</span>
+          <span>{formatEther(retrieveAmount(account))} ETH (testnet)</span>
+        </Item>
+      </ItemsWrapper>
       <ClaimButton onSuccess={handleSuccess} onError={handleError} />
       {renderAlert()}
-    </RoundedBox>
+    </FormWrapper>
   )
 }
 

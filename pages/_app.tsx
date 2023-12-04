@@ -3,11 +3,10 @@ import { createTheme, CssBaseline, ThemeProvider } from "@mui/material"
 import { PontemL2, DAppProvider, Config } from "@usedapp/core"
 import Head from "next/head"
 import { FormHeader } from "../components/FormHeader"
-import { Footer } from "../components/Footer"
-import { Layout } from "../components/Layout"
 import { Content } from "../components/Content"
 import { pollingInterval } from "../consts/env"
 import { CaptchaProvider } from "../components/CaptchaProvider"
+import { AppLayout } from "../components/AppLayout"
 
 const config: Config = {
   readOnlyChainId: PontemL2.chainId,
@@ -27,14 +26,13 @@ const EthereumFaucet = ({ Component, pageProps }: AppProps) => (
       <DAppProvider config={config}>
         <ThemeProvider theme={theme}>
           <CssBaseline />
-          <Layout>
+          <AppLayout>
             <Content>
               <FormHeader />
               <Component {...pageProps} />
               {/*<OpenSourceMemo />*/}
             </Content>
-            <Footer />
-          </Layout>
+          </AppLayout>
         </ThemeProvider>
       </DAppProvider>
     </CaptchaProvider>

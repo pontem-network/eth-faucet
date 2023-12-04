@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import Image from 'next/image';
 import styled from 'styled-components';
-import { viewports } from '@/constants/viewports';
+import { viewports } from '../../constants/viewports';
 
 import { Copyright } from './components/Copyright';
 

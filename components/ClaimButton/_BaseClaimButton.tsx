@@ -1,4 +1,3 @@
-import { Button } from "@mui/material"
 import LoadingButton from "@mui/lab/LoadingButton"
 import { PontemL2, useEthers } from "@usedapp/core"
 import { isNil } from "lodash"
@@ -6,6 +5,7 @@ import Link from "next/link"
 import { hasMetamask } from "../../hooks/hasMetamask"
 import { claimTokens, retrieveNonce } from "../../services/HttpClient"
 import { messageTemplate } from "../../utils/textMessage"
+import { Button } from './Button';
 
 type BaseClaimButtonProps = {
   onSuccess: () => void
@@ -48,7 +48,7 @@ export const BaseClaimButton = ({ onSuccess, onError, retrieveCaptcha }: BaseCla
   if (!installed) {
     return (
       <Link href="https://metamask.io/download/" passHref>
-        <Button variant="contained" fullWidth>
+        <Button fullWidth>
           Install MetaMask
         </Button>
       </Link>
@@ -61,7 +61,7 @@ export const BaseClaimButton = ({ onSuccess, onError, retrieveCaptcha }: BaseCla
 
   if (!account) {
     return (
-      <Button variant="contained" onClick={() => activateBrowserWallet()} fullWidth>
+      <Button onClick={() => activateBrowserWallet()} fullWidth>
         Connect wallet
       </Button>
     )
@@ -69,14 +69,14 @@ export const BaseClaimButton = ({ onSuccess, onError, retrieveCaptcha }: BaseCla
 
   if (chainId !== PontemL2.chainId) {
     return (
-      <Button variant="contained" onClick={() => switchNetwork(PontemL2.chainId)} fullWidth>
+      <Button onClick={() => switchNetwork(PontemL2.chainId)} fullWidth>
         Switch to PONTEM L2 network
       </Button>
     )
   }
 
   return (
-    <Button variant="contained" onClick={claimPontemL2Eth} fullWidth>
+    <Button onClick={claimPontemL2Eth} fullWidth>
       Claim PONTEM L2 ETH
     </Button>
   )

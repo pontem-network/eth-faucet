@@ -5,7 +5,7 @@ export const headerLinksList = [
         desktopIcon: 'swap',
         label: 'Swap',
         name: 'swap',
-        url: 'https://liquidswap.com/#/',
+        url: 'https://l2.swap.devops.mom/#/',
         to: { name: 'swap' },
     },
     {
@@ -14,39 +14,18 @@ export const headerLinksList = [
             {
                 label: 'Pools',
                 name: 'pools',
-                url: 'https://liquidswap.com/#/pools',
+                url: 'https://l2.swap.devops.mom/#/pools',
                 to: { name: 'pools' },
                 icon: 'earn-link earn-link_type_pools',
             },
-            {
-                label: 'Farms',
-                name: 'stakes',
-                url: 'https://liquidswap.com/#/stakes',
-                to: { name: 'stakes' },
-                icon: 'earn-link earn-link_type_farms',
-            },
-            {
-                label: 'Staking',
-                name: 'aptos-staking',
-                url: 'https://liquidswap.com/#/aptos-staking',
-                to: { name: 'aptos-staking' },
-                icon: 'earn-link earn-link_type_staking',
-              },
         ],
     },
     {
-        desktopIcon: 'bridge',
-        label: 'Bridge',
-        name: 'bridge',
+        desktopIcon: 'Claim',
+        label: 'Claim',
+        name: 'claim',
         url: '/',
-        to: { name: 'bridge' },
-    },
-    {
-        desktopIcon: 'stats',
-        label: 'Stats',
-        name: 'stats',
-        url: 'https://liquidswap.com/#/stats',
-        to: { name: 'stats' },
+        to: { name: 'claim' },
     },
 ];
 

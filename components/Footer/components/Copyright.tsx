@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import styled from 'styled-components';
-import { viewports } from '@/common/constants/viewports';
+import { viewports } from '../../../constants/viewports';
 
 const StyledCopyright = styled.p`
     order: 3;

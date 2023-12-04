@@ -2,7 +2,7 @@ import { FC, MouseEvent, useCallback, useRef } from 'react';
 import styled from 'styled-components';
 import { Menu } from 'primereact/menu';
 
-import { gridChildFirstRow } from '@/styles/mixins';
+import { gridChildFirstRow } from '../../styles/mixins';
 
 import { HeaderLinks } from './components/HeaderLinks';
 import { LearnButton } from './components/LearnButton';

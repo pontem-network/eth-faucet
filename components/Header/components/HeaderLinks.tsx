@@ -314,7 +314,7 @@ export const HeaderLinks: FC = () => {
                         </StyledLinksListItem>
                     ) : (
                         <StyledLinksListItem
-                            className={link.name === 'bridge' ? 'active' : ''}
+                            className={link.name === 'claim' ? 'active' : ''}
                             key={link.label}
                         >
                             <StyledHeaderLink href={link.url} rel="noopener noreferrer">
