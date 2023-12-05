@@ -3,11 +3,20 @@ The `eth-faucet` is a developer tool to get testnet Ether (ETH) in order to test
 
 ## Getting Started
 
-0. Unzip useDappCore alongside with project directory. This build contains Pontem Network L2 config. 
+1. Unzip useDappCore alongside with project directory. ("useDappCore" should be neighbour to "eth-faucet" dir) This build contains Pontem Network L2 config. 
 [useDappCore.zip](https://github.com/pontem-network/eth-faucet/files/13561399/useDappCore.zip)
 
+2. Go to useDappCore ans install dependencies via
+```bash
+"npm install"
+```
 
-1. First, create a new Ethereum wallet:
+3. Go to eth-faucet and install dependencies via
+```bash
+yarn install 
+```
+
+4. Create a new Ethereum wallet:
 
 ```bash
 yarn create-wallet
@@ -23,9 +32,8 @@ export WALLET_PRIVATE_KEY=0x0000000000000000000000000000000000000000000000000000
 
 **Write those credentials down**, you will need it!
 
-2. Now, you need to find the Ethereum API for network. You can use Infura and you can use it as well. Just [create a free account](https://infura.io) and generate API keys for any network.
-
-3. Once you have your API keys, create a `.env.local` file, and specify the following variables:
+5. Now, you need to find the Ethereum API for network. You can use Infura and you can use it as well. Just [create a free account](https://infura.io) and generate API keys for any network.
+6. Once you have your API keys, create a `.env.local` file, and specify the following variables:
 
 ```
 WALLET_PRIVATE_KEY=0x0000000000000000000000000000000000000000000000000000000000000000
@@ -35,7 +43,7 @@ NEXT_PUBLIC_PRIVILEGED_WALLET_ETH_AMOUNT=1 # Optional
 REDIS_URL=redis://localhost:6379
 ```
 
-4. Finally, we can run our app:
+7. Finally, we can run our app:
 
 ```bash
 yarn dev

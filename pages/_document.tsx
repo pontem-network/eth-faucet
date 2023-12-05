@@ -9,7 +9,6 @@ const Document = () => (
     </Head>
     <body>
       <Main />
-      <p>IP: </p>
       <NextScript />
     </body>
   </Html>
