@@ -22,7 +22,7 @@ export WALLET_PRIVATE_KEY=0x0000000000000000000000000000000000000000000000000000
 
 **Write those credentials down**, you will need it!
 
-2. Now, you need to find the Ethereum API for Görli network. I’m using Infura and you can use it as well. Just [create a free account](https://infura.io) and generate API keys for Görli network.
+2. Now, you need to find the Ethereum API for network. You can use Infura and you can use it as well. Just [create a free account](https://infura.io) and generate API keys for any network.
 
 3. Once you have your API keys, create a `.env.local` file, and specify the following variables:
 
@@ -31,6 +31,7 @@ WALLET_PRIVATE_KEY=0x00000000000000000000000000000000000000000000000000000000000
 NEXT_PUBLIC_ETH_API_URL=https://goerli.infura.io/v3/00000000000000000000000000000000
 NEXT_PUBLIC_DEFAULT_WALLET_ETH_AMOUNT=0.25 # Optional
 NEXT_PUBLIC_PRIVILEGED_WALLET_ETH_AMOUNT=1 # Optional
+REDIS_URL=redis://localhost:6379
 ```
 
 4. Finally, we can run our app:
@@ -41,11 +42,11 @@ yarn dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see it.
 
-## How to top up the wallet with Görli ETH?
+## How to top up the wallet with ETH?
 
 You can use [this faucet](https://goerli-faucet.mudit.blog/) to request some testnet Ethereum.
 
-## How to change amount of distributed Görli ETH?
+## How to change amount of distributed ETH?
 
 Set the `NEXT_PUBLIC_DEFAULT_WALLET_ETH_AMOUNT` variable in your `.env` file. For example:
 
@@ -78,7 +79,7 @@ RECAPTCHA_SECRET_KEY=0000000000000000000000000000000000000000
 
 You can [create a new API Key here](https://www.google.com/recaptcha/intro/v3.html). It’s free of charge (there are some limits though).
 
-## Restricting users to claim Görli ETH once per day
+## Restricting users to claim ETH once per day
 
 If you want to restrict users from draining your wallet, you should enable transaction checks. You can do it by setting `ENABLE_TRANSACTION_CHECKS` in your `.env` file. The supported transaction history scanners you can find here:
 
@@ -120,7 +121,7 @@ You can [create a Redis database on Upstash.com](https://upstash.com/). It’s f
 
 From now on, the faucet supports priviledged wallets. The riviledged wallet can receive higher amounts of tokens per request and the limits are not apply to them.
 
-### How to define amount of distributed Görli ETH to privileged wallets?
+### How to define amount of distributed ETH to privileged wallets?
 
 Set the `NEXT_PUBLIC_PRIVILEGED_WALLET_ETH_AMOUNT` variable in your `.env` file. For example:
 
