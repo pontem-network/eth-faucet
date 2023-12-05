@@ -1,4 +1,3 @@
-import { Goerli } from "@usedapp/core"
 import { ethers } from "ethers"
 import { privilegedWallets } from "../consts/wallets"
 import { Ethereum } from "../services/Ethereum"

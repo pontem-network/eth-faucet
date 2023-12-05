@@ -294,7 +294,7 @@ export const HeaderLinks: FC = () => {
                             <StyledHeaderLinkTypeButton
                                 aria-haspopup="true"
                                 aria-controls="link__dropdown"
-                                onClick={(event) => {
+                                onClick={(event: any) => {
                                     earnMenu.current?.toggle(event);
                                     toggleEarnMenu();
                                 }}
