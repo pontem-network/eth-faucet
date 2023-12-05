@@ -2855,6 +2855,7 @@ axios@latest:
     react: 18.1.0
     react-dom: 18.1.0
     react-google-recaptcha-v3: 1.10.0
+    react-transition-group: ^4.4.5
     request-ip: latest
     styled-components: 6.1.1
     ts-node: 10.9.1
@@ -4704,7 +4705,7 @@ lodash@latest:
   languageName: node
   linkType: hard
 
-"react-transition-group@npm:^4.4.1":
+"react-transition-group@npm:^4.4.1, react-transition-group@npm:^4.4.5":
   version: 4.4.5
   resolution: "react-transition-group@npm:4.4.5"
   dependencies:

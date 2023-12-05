@@ -23,10 +23,10 @@ const topList = [
     to: { name: 'swap' },
   },
   {
-    label: 'Bridge',
-    name: 'bridge',
+    label: 'Claim',
+    name: 'claim',
     icon: 'menu-link menu-link_type_bridge',
-    to: { name: 'bridge' },
+    to: { name: 'claim' },
   },
 ];
 
@@ -35,7 +35,7 @@ const topListItemTemplate = (item: any, _options: any) => {
     return (
       <a
         className="p-menuitem-link"
-        href="https://liquidswap.com"
+        href="https://l2.swap.devops.mom/"
         rel="noreferrer noopenner"
       >
         {item.icon && <span className={classNames('p-menuitem-icon', item.icon)}></span>}
@@ -44,15 +44,16 @@ const topListItemTemplate = (item: any, _options: any) => {
     );
   }
 
-  if (item.name === 'bridge') {
+  if (item.name === 'claim') {
     return (
+      // eslint-disable-next-line @next/next/no-html-link-for-pages
       <a
         className="p-menuitem-link active"
-        href="https://bridge.liquidswap.com"
+        href="/"
         rel="noreferrer noopenner"
       >
         {item.icon && <span className={classNames('p-menuitem-icon', item.icon)}></span>}
-        Bridge
+        Claim
       </a>
     );
   }
@@ -60,7 +61,7 @@ const topListItemTemplate = (item: any, _options: any) => {
   return (
     <a
       className={classNames('p-menuitem-link')}
-      href={`https://liquidswap.com/#/${item.name}`}
+      href={`https://l2.swap.devops.mom/#/${item.name}`}
       rel="noreferrer noopenner"
     >
       {item.icon && <span className={classNames('p-menuitem-icon', item.icon)}></span>}
@@ -88,25 +89,13 @@ const earnList = [
     icon: 'menu-link menu-link_type_pools',
     to: { name: 'pools' },
   },
-  {
-    label: 'Farms',
-    name: 'stakes',
-    icon: 'menu-link menu-link_type_stakes',
-    to: { name: 'stakes' },
-  },
-  {
-    label: 'Staking',
-    name: 'aptos-staking',
-    icon: 'menu-link menu-link_type_staking',
-    to: { name: 'aptos-staking' },
-  },
 ];
 
 const earnListItemTemplate = (item: any, _options: any) => {
   return (
     <a
       className={classNames('p-menuitem-link')}
-      href={`https://liquidswap.com/#/${item.name}`}
+      href={`https://l2.swap.devops.mom/#/${item.name}`}
       rel="noreferrer noopenner"
     >
       {item.icon && <span className={classNames('p-menuitem-icon', item.icon)}></span>}
@@ -120,32 +109,6 @@ const earnListItemsWithTemplate = earnList.map((item) => ({
   template: earnListItemTemplate,
 }));
 
-const analyticsList = [
-  {
-    label: 'Stats',
-    name: 'stats',
-    icon: 'menu-link menu-link_type_stats',
-    to: { name: 'stats' },
-  },
-];
-
-const analyticsListItemTemplate = (item: any, _options: any) => {
-  return (
-    <a
-      className={classNames('p-menuitem-link')}
-      href={`https://liquidswap.com/#/${item.name}`}
-      rel="noreferrer noopenner"
-    >
-      {item.icon && <span className={classNames('p-menuitem-icon', item.icon)}></span>}
-      { item.label }
-    </a>
-  );
-};
-
-const analyticsListItemsWithTemplate = analyticsList.map((item) => ({
-  ...item,
-  template: analyticsListItemTemplate,
-}));
 
 const moreList = [
   {
@@ -267,8 +230,7 @@ const StyledSidebar = styled(Sidebar)`
     width: 524px !important;
     max-width: 390px;
 
-    background-color: #16162d;
-    box-shadow: -2px 0px 4px #000000;
+    box-shadow: -2px 0 4px #000000;
     border-width: 0;
 
     background-color: #03031c;
@@ -354,7 +316,6 @@ const StyledMenuTitle = styled.h1`
 `;
 
 const StyledDivider = styled.hr`
-    border: 0px;
     border-top: 2px solid #fbfaff16;
     border-width: 2px 0px 0px 0px;
     margin: 0px -1.25rem;
@@ -447,13 +408,6 @@ export const MobileMenu: FC = () => {
           id="mobile-menu-earn"
           popup={false}
           model={earnListItemsWithTemplate}
-        />
-
-        <StyledMenuSubtitle>Analytics</StyledMenuSubtitle>
-        <StyledMobileMenu
-          id="mobile-menu-analytics"
-          popup={false}
-          model={analyticsListItemsWithTemplate}
         />
 
         <StyledMenuSubtitle>More</StyledMenuSubtitle>

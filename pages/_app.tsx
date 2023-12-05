@@ -7,6 +7,8 @@ import { Content } from "../components/Content"
 import { pollingInterval } from "../consts/env"
 import { CaptchaProvider } from "../components/CaptchaProvider"
 import { AppLayout } from "../components/AppLayout"
+import '../styles/index.css';
+
 
 const config: Config = {
   readOnlyChainId: PontemL2.chainId,

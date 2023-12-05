@@ -32,15 +32,33 @@ const StyledSocialMenu = styled(Menu)`
 
     background-color: #28253e !important;
 
-    .p-menuitem {
+    & .social-menu__item {
         border-radius: 0.5rem;
 
         transition: background-color 0.15s ease;
         will-change: background-color;
+        padding: 0.75rem 1.25rem;
+        color: rgba(255, 255, 255, 0.87);
+        user-select: none;
 
         &:hover {
             background-color: #3e3e52 !important;
         }
+    }
+
+    & .p-menuitem-icon {
+      font-family: 'primeicons';
+      speak: none;
+      font-style: normal;
+      font-weight: normal;
+      font-variant: normal;
+      text-transform: none;
+      line-height: 1;
+      display: inline-block;
+      -webkit-font-smoothing: antialiased;
+      color: rgba(255, 255, 255, 0.6);
+      margin-right: 0.5rem;
+      font-size: 1rem;
     }
 `;
 

@@ -64,8 +64,8 @@ const StyledSocialButton = styled(SocialButton)`
   border-radius: 50%;
 
   &:hover > div {
-    background-color: #e0e0e0;
-    color: #e0e0e0;
+    background-color: #e0e0e0!important;
+    color: #e0e0e0!important;
   }
 `;
 
