@@ -50,12 +50,14 @@ const reducer = (_: State, action: Action): State => {
 const Home: NextPage = () => {
   const { account } = useEthers()
   const [state, dispatch] = useReducer(reducer, initialState)
-  const balance = useEtherBalance(account, { refresh: "everyBlock" })
+  const balance = useEtherBalance(account)
   const [retrieveAmount] = useWalletClassification()
 
   const handleSuccess = () => dispatch({ type: "success" })
 
   const handleError = (error: string) => dispatch({ type: "error", error })
+
+  console.log('!!balance', balance);
 
   const renderAlert = useCallback(() => {
     switch (state.status) {

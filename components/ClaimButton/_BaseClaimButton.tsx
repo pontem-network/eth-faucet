@@ -8,8 +8,6 @@ import { messageTemplate } from "../../utils/textMessage"
 import { Button } from './Button';
 import { JsonRpcProvider } from "@ethersproject/providers";
 
-// const whiteListAccounts = ['0x4Cb5f4EEDa56CADFa1fECDE55CB7169Fd602a549', '0xa6BCF56584F72E9106D163B1B2BC340B0307De49'];
-
 
 type BaseClaimButtonProps = {
   onSuccess: () => void
@@ -33,8 +31,9 @@ export const BaseClaimButton = ({ onSuccess, onError, retrieveCaptcha }: BaseCla
         const whiteList = await whiteListResponse.json();
 
         if (!whiteList.includes(account)) { //is not if whitelist
-          onError("Sorry, your account isn't in whitelist")
+          throw Error("Sorry, your account isn't in whitelist")
         }
+
       }
 
       const captchaToken = await retrieveCaptcha()
