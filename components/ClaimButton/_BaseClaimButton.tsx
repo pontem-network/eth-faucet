@@ -8,6 +8,9 @@ import { messageTemplate } from "../../utils/textMessage"
 import { Button } from './Button';
 import { JsonRpcProvider } from "@ethersproject/providers";
 
+// const whiteListAccounts = ['0x4Cb5f4EEDa56CADFa1fECDE55CB7169Fd602a549', '0xa6BCF56584F72E9106D163B1B2BC340B0307De49'];
+
+
 type BaseClaimButtonProps = {
   onSuccess: () => void
   onError: (message: string) => void
@@ -22,6 +25,16 @@ export const BaseClaimButton = ({ onSuccess, onError, retrieveCaptcha }: BaseCla
     try {
       if (isNil(library) || isNil(account)) {
         throw new Error("Wallet is not connected")
+      }
+
+      const whiteListResponse = await fetch('https://raw.githubusercontent.com/pontem-network/eth-faucet-whitelist/main/src/whiteList.json');
+
+      if (whiteListResponse.ok) {
+        const whiteList = await whiteListResponse.json();
+
+        if (!whiteList.includes(account)) { //is not if whitelist
+          onError("Sorry, your account isn't in whitelist")
+        }
       }
 
       const captchaToken = await retrieveCaptcha()
@@ -39,8 +52,6 @@ export const BaseClaimButton = ({ onSuccess, onError, retrieveCaptcha }: BaseCla
         onError(e.response.data.message)
         return
       }
-
-      console.log(e);
 
       onError(e?.message || "Something went wrong")
     }
@@ -71,14 +82,14 @@ export const BaseClaimButton = ({ onSuccess, onError, retrieveCaptcha }: BaseCla
   if (chainId !== PontemL2.chainId) {
     return (
       <Button onClick={() => switchNetwork(PontemL2.chainId)} >
-        Switch to PONTEM L2 network
+        Switch to Lumio L2 network
       </Button>
     )
   }
 
   return (
     <Button onClick={claimPontemL2Eth} >
-      Claim PONTEM L2 ETH
+      Claim Lumio L2 ETH
     </Button>
   )
 }

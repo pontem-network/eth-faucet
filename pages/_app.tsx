@@ -22,7 +22,7 @@ const theme = createTheme()
 const EthereumFaucet = ({ Component, pageProps }: AppProps) => (
   <>
     <Head>
-      <title>Claim Pontem L2 ETH</title>
+      <title>Claim Lumio L2 ETH</title>
     </Head>
     <CaptchaProvider>
       <DAppProvider config={config}>

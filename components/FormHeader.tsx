@@ -33,9 +33,9 @@ const HeaderDiv = styled("div")(({ theme }) => ({
 export const FormHeader = () => {
   return (
     <HeaderDiv>
-      <Typography variant="h1">Claim PONTEM L2 ETH</Typography>
+      <Typography variant="h1">Claim Lumio L2 ETH</Typography>
       <Typography variant="body2">
-        <b>PONTEM L2 ETH has no monetary value.</b> It means you can’t sell or exchange it for any goods or services. The
+        <b>Lumio L2 ETH has no monetary value.</b> It means you can’t sell or exchange it for any goods or services. The
         only utility it has is testing your decentralized application (DApp).
       </Typography>
     </HeaderDiv>
