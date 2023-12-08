@@ -25,17 +25,6 @@ export const BaseClaimButton = ({ onSuccess, onError, retrieveCaptcha }: BaseCla
         throw new Error("Wallet is not connected")
       }
 
-      const whiteListResponse = await fetch('https://raw.githubusercontent.com/pontem-network/eth-faucet-whitelist/main/src/whiteList.json');
-
-      if (whiteListResponse.ok) {
-        const whiteList = await whiteListResponse.json();
-
-        if (!whiteList.includes(account)) { //is not if whitelist
-          throw Error("Sorry, your account isn't in whitelist")
-        }
-
-      }
-
       const captchaToken = await retrieveCaptcha()
 
       const nonce = await retrieveNonce()

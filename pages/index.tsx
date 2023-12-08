@@ -57,8 +57,6 @@ const Home: NextPage = () => {
 
   const handleError = (error: string) => dispatch({ type: "error", error })
 
-  console.log('!!balance', balance);
-
   const renderAlert = useCallback(() => {
     switch (state.status) {
       case "success":

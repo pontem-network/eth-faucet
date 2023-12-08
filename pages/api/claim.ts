@@ -7,6 +7,7 @@ import { NonceExpiredError } from "../../errors/NonceExpiredError"
 import { NonEmptyWalletError } from "../../errors/NonEmptyWalletError"
 import { SignatureMismatchError } from "../../errors/SignatureMismatchError"
 import { WalletAlreadyFunded } from "../../errors/WalletAlreadyFunded"
+import { InvalidWalletAddress } from "../../errors/InvalidWalletAddress"
 import { TransactionHistory } from "../../interfaces/TransactionHistory"
 import { DefaultResponse } from "../../interfaces/Response"
 import { bootstrapCaptcha } from "../../utils/bootstrapCaptcha"
@@ -29,6 +30,17 @@ const handler = async (req: NextApiRequest, res: NextApiResponse<DefaultResponse
 
     // TODO(mateusz): Refactor bootstrapTransactionHistory. The current implementation is hairy
     // Start of IP detection
+    const whiteListResponse = await fetch('https://raw.githubusercontent.com/pontem-network/eth-faucet-whitelist/main/src/whiteList.json');
+
+    if (whiteListResponse.ok) {
+      const whiteList = await whiteListResponse.json();
+s
+      if (!whiteList.includes(address)) { //is not if whitelist
+        throw new InvalidWalletAddress()
+      }
+
+    }
+
     const ipDetection = bootstrapTransactionHistory("ip") as TransactionHistory
     const ipAddress = requestIp.getClientIp(req)
     if (ipAddress) {
@@ -59,7 +71,8 @@ const handler = async (req: NextApiRequest, res: NextApiResponse<DefaultResponse
       e instanceof SignatureMismatchError ||
       e instanceof InsufficientFundsError ||
       e instanceof NonEmptyWalletError ||
-      e instanceof WalletAlreadyFunded
+      e instanceof WalletAlreadyFunded ||
+      e instanceof InvalidWalletAddress
     ) {
       return res.status(e.code).json({ status: "error", message: e.message })
     }
