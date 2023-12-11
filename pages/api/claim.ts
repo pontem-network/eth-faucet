@@ -38,8 +38,9 @@ const handler = async (req: NextApiRequest, res: NextApiResponse<DefaultResponse
       if (!whiteList.includes(address)) { //is not if whitelist
         throw new InvalidWalletAddress()
       }
-
     }
+
+    console.log('1');
 
     const ipDetection = bootstrapTransactionHistory("ip") as TransactionHistory
     const ipAddress = requestIp.getClientIp(req)
@@ -76,6 +77,8 @@ const handler = async (req: NextApiRequest, res: NextApiResponse<DefaultResponse
     ) {
       return res.status(e.code).json({ status: "error", message: e.message })
     }
+
+    console.log('error', e);
 
     console.error(e)
     return res.status(500).json({ status: "error", message: "Something went wrong" })
