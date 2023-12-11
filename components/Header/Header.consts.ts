@@ -20,7 +20,7 @@ export const headerLinksList = [
     },
     {
         desktopIcon: 'claim',
-        label: 'Claim',
+        label: 'Claim Gas',
         name: 'claim',
         url: '/',
         to: { name: 'claim' },

@@ -70,7 +70,7 @@ const Home: NextPage = () => {
       default:
         return null
     }
-  }, [state.status])
+  }, [state.status, account])
 
   return (
     <FormWrapper>

@@ -30,7 +30,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse<DefaultResponse
 
     // TODO(mateusz): Refactor bootstrapTransactionHistory. The current implementation is hairy
     // Start of IP detection
-    const whiteListResponse = await fetch('https://raw.githubusercontent.com/pontem-network/eth-faucet-whitelist/main/src/whiteList.json');
+    const whiteListResponse = await fetch('https://raw.githubusercontent.com/pontem-network/eth-faucet-whitelist/main/src/evm.whiteList.json');
 
     if (whiteListResponse.ok) {
       const whiteList = await whiteListResponse.json();

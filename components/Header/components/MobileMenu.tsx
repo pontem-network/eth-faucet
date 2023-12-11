@@ -23,7 +23,7 @@ const topList = [
     to: { name: 'swap' },
   },
   {
-    label: 'Claim',
+    label: 'Claim Gas',
     name: 'claim',
     icon: 'menu-link menu-link_type_bridge',
     to: { name: 'claim' },
@@ -53,7 +53,7 @@ const topListItemTemplate = (item: any, _options: any) => {
         rel="noreferrer noopenner"
       >
         {item.icon && <span className={classNames('p-menuitem-icon', item.icon)}></span>}
-        Claim
+        Claim Gas
       </a>
     );
   }
