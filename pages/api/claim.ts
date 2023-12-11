@@ -38,7 +38,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse<DefaultResponse
     if (whiteListResponse.ok) {
       const whiteList = await whiteListResponse.json();
 
-      if (!whiteList.includes(address)) { //is not if whitelist
+      if (whiteList.length > 0 && !whiteList.includes(address)) { //is not if whitelist
         throw new InvalidWalletAddress()
       }
     }
