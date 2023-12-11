@@ -48,8 +48,8 @@ export const BaseClaimButton = ({ onSuccess, onError, retrieveCaptcha }: BaseCla
   if (!installed) {
     return (
       <Link href="https://metamask.io/download/" passHref>
-        <Button >
-          Install MetaMask
+        <Button>
+          INSTALL METAMASK
         </Button>
       </Link>
     )
@@ -62,7 +62,7 @@ export const BaseClaimButton = ({ onSuccess, onError, retrieveCaptcha }: BaseCla
   if (!account) {
     return (
       <Button onClick={() => activateBrowserWallet()} >
-        Connect wallet
+        CONNECT WALLET
       </Button>
     )
   }
@@ -70,14 +70,14 @@ export const BaseClaimButton = ({ onSuccess, onError, retrieveCaptcha }: BaseCla
   if (chainId !== PontemL2.chainId) {
     return (
       <Button onClick={() => switchNetwork(PontemL2.chainId)} >
-        Switch to Lumio L2 network
+        SWITCH TO LUMIO L2 NETWORK
       </Button>
     )
   }
 
   return (
     <Button onClick={claimPontemL2Eth} >
-      Claim Lumio L2 ETH
+      CLAIM LUMIO L2 ETH
     </Button>
   )
 }

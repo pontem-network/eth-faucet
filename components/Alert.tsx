@@ -9,9 +9,10 @@ const StyledAlert = styled(MuiAlert)(({ theme }) => ({
   color: "white",
   display: "flex",
   alignItems: "center",
+  width: "100%",
 
-  "& > svg": {
-    color: "#FFBB1299",
+  "svg": {
+    color: "#B4861A",
   }
 }))
 

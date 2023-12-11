@@ -1,4 +1,4 @@
 export class WalletAlreadyFunded extends Error {
   code = 403
-  message = "Your wallet has received Lumio L2 ETH from us already. You need to wait 24 hours to claim tokens again."
+  message = "Your IP address has already received Lumio L2 ETH from us. You need to wait 24 hours to receive token again."
 }
