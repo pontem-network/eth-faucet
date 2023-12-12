@@ -1,19 +1,21 @@
 import type { AppProps } from "next/app"
 import { createTheme, CssBaseline, ThemeProvider } from "@mui/material"
-import { PontemL2, DAppProvider, Config } from "@usedapp/core"
+import { DAppProvider, Config } from "@usedapp/core"
 import Head from "next/head"
+
 import { FormHeader } from "../components/FormHeader"
 import { Content } from "../components/Content"
 import { pollingInterval } from "../consts/env"
 import { CaptchaProvider } from "../components/CaptchaProvider"
 import { AppLayout } from "../components/AppLayout"
 import '../styles/index.css';
+import { CHAIN_ID, CHAIN_URL } from "../constants"
 
 
 const config: Config = {
-  readOnlyChainId: PontemL2.chainId,
+  readOnlyChainId: Number(CHAIN_ID),
   readOnlyUrls: {
-    [PontemL2.chainId]: process.env.NEXT_PUBLIC_ETH_API_URL as string
+    [Number(CHAIN_ID)]: CHAIN_URL
   },
   pollingInterval
 }

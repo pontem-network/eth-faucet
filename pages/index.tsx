@@ -9,8 +9,9 @@ import { ClaimButton } from "../components/ClaimButton"
 import { Item, ItemsWrapper } from "../components/Item"
 import { FormWrapper }  from "../components/RoundedBox"
 import { useWalletClassification } from "../hooks/useWalletClassification"
+import { CHAIN_URL } from "../constants";
 
-const web3 = new Web3(new Web3.providers.HttpProvider("https://devnet.lumio.network"));
+const web3 = new Web3(new Web3.providers.HttpProvider(CHAIN_URL));
 
 type Action =
   | {
