@@ -1,19 +1,21 @@
 import type { AppProps } from "next/app"
 import { createTheme, CssBaseline, ThemeProvider } from "@mui/material"
-import { Goerli, DAppProvider, Config } from "@usedapp/core"
+import { DAppProvider, Config } from "@usedapp/core"
 import Head from "next/head"
-import { OpenSourceMemo } from "../components/OpenSourceMemo"
-import { Header } from "../components/Header"
-import { Footer } from "../components/Footer"
-import { Layout } from "../components/Layout"
+
+import { FormHeader } from "../components/FormHeader"
 import { Content } from "../components/Content"
 import { pollingInterval } from "../consts/env"
 import { CaptchaProvider } from "../components/CaptchaProvider"
+import { AppLayout } from "../components/AppLayout"
+import '../styles/index.css';
+import { CHAIN_ID, CHAIN_URL } from "../constants"
+
 
 const config: Config = {
-  readOnlyChainId: Goerli.chainId,
+  readOnlyChainId: Number(CHAIN_ID),
   readOnlyUrls: {
-    [Goerli.chainId]: process.env.NEXT_PUBLIC_ETH_API_URL as string
+    [Number(CHAIN_ID)]: CHAIN_URL
   },
   pollingInterval
 }
@@ -22,20 +24,19 @@ const theme = createTheme()
 const EthereumFaucet = ({ Component, pageProps }: AppProps) => (
   <>
     <Head>
-      <title>Claim Görli ETH</title>
+      <title>Claim Lumio L2 ETH</title>
     </Head>
     <CaptchaProvider>
       <DAppProvider config={config}>
         <ThemeProvider theme={theme}>
           <CssBaseline />
-          <Layout>
+          <AppLayout>
             <Content>
-              <Header />
+              <FormHeader />
               <Component {...pageProps} />
-              <OpenSourceMemo />
+              {/*<OpenSourceMemo />*/}
             </Content>
-            <Footer />
-          </Layout>
+          </AppLayout>
         </ThemeProvider>
       </DAppProvider>
     </CaptchaProvider>

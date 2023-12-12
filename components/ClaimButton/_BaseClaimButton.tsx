@@ -1,11 +1,14 @@
-import { Button } from "@mui/material"
 import LoadingButton from "@mui/lab/LoadingButton"
-import { Goerli, useEthers } from "@usedapp/core"
+import { useEthers } from "@usedapp/core"
 import { isNil } from "lodash"
 import Link from "next/link"
 import { hasMetamask } from "../../hooks/hasMetamask"
 import { claimTokens, retrieveNonce } from "../../services/HttpClient"
 import { messageTemplate } from "../../utils/textMessage"
+import { Button } from './Button';
+import { JsonRpcProvider } from "@ethersproject/providers";
+import { CHAIN_ID } from '../../constants';
+
 
 type BaseClaimButtonProps = {
   onSuccess: () => void
@@ -17,7 +20,7 @@ export const BaseClaimButton = ({ onSuccess, onError, retrieveCaptcha }: BaseCla
   const { account, library, isLoading: loading, activateBrowserWallet, switchNetwork, chainId } = useEthers()
   const installed = hasMetamask()
 
-  const claimGorliEth = async () => {
+  const claimPontemL2Eth = async () => {
     try {
       if (isNil(library) || isNil(account)) {
         throw new Error("Wallet is not connected")
@@ -28,7 +31,7 @@ export const BaseClaimButton = ({ onSuccess, onError, retrieveCaptcha }: BaseCla
       const nonce = await retrieveNonce()
       const message = messageTemplate(nonce)
 
-      const signer = library.getSigner()
+      const signer = (library as JsonRpcProvider).getSigner()
       const signature = await signer.signMessage(message)
 
       await claimTokens(account as string, message, signature, captchaToken)
@@ -46,36 +49,36 @@ export const BaseClaimButton = ({ onSuccess, onError, retrieveCaptcha }: BaseCla
   if (!installed) {
     return (
       <Link href="https://metamask.io/download/" passHref>
-        <Button variant="contained" fullWidth>
-          Install MetaMask
+        <Button>
+          INSTALL METAMASK
         </Button>
       </Link>
     )
   }
 
   if (loading) {
-    return <LoadingButton variant="contained" loading fullWidth />
+    return <LoadingButton variant="contained" loading  />
   }
 
   if (!account) {
     return (
-      <Button variant="contained" onClick={() => activateBrowserWallet()} fullWidth>
-        Connect wallet
+      <Button onClick={() => activateBrowserWallet()} >
+        CONNECT WALLET
       </Button>
     )
   }
 
-  if (chainId !== Goerli.chainId) {
+  if (chainId !== Number(CHAIN_ID)) {
     return (
-      <Button variant="contained" onClick={() => switchNetwork(Goerli.chainId)} fullWidth>
-        Switch to Görli network
+      <Button onClick={() => switchNetwork(Number(CHAIN_ID))} >
+        SWITCH TO LUMIO L2 NETWORK
       </Button>
     )
   }
 
   return (
-    <Button variant="contained" onClick={claimGorliEth} fullWidth>
-      Claim Görli ETH
+    <Button onClick={claimPontemL2Eth} >
+      CLAIM LUMIO L2 ETH
     </Button>
   )
 }

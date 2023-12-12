@@ -1,12 +1,16 @@
-import { Box, styled } from "@mui/material"
+import styled from 'styled-components';
 
-export const RoundedBox = styled(Box)(({ theme }) => ({
-  background: theme.palette.background.default,
-  borderRadius: theme.shape.borderRadius,
-  margin: `${theme.spacing(2)} auto`,
-  padding: theme.spacing(2),
-  minWidth: theme.spacing(40),
-  maxWidth: theme.spacing(70),
-  width: "100%",
-  ...theme.typography.body2
-}))
+export const RoundedBox = styled.div `
+`
+
+export const FormWrapper = styled.div `
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: #16152d;
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 20px;
+  border-radius: 24px;
+`
