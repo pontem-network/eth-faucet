@@ -5,8 +5,8 @@
   "scripts": {
     "create-wallet": "ts-node ./_scripts/createWallet.ts",
     "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
+    "build": "NODE_ENV=$NODE_ENV next build",
+    "start": "NODE_ENV=$NODE_ENV next start",
     "lint": "next lint"
   },
   "dependencies": {
