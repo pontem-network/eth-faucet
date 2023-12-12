@@ -19,7 +19,5 @@ COPY ["package.json", "yarn.lock", ".yarnrc.yml", "./"]
 COPY .yarn .yarn
 RUN yarn install
 COPY . .
-ARG NODE_ENV=production
-ENV NODE_ENV="${NODE_ENV}"
-RUN yarn build
+RUN yarn build:dev
 CMD ["yarn", "start"]
