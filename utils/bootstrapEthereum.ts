@@ -1,10 +1,11 @@
 import { ethers } from "ethers"
+
 import { privilegedWallets } from "../consts/wallets"
 import { Ethereum } from "../services/Ethereum"
 import { TimestampNonce } from "../services/TimestampNonce"
 import { WalletClassification } from "../services/WalletClassification"
 import { bootstrapTransactionHistory, TransactionHistoryType } from "./bootstrapTransactionHistory"
-import { CHAIN_URL, CHAIN_ID } from "@/constants";
+import { CHAIN_URL, CHAIN_ID } from "../constants";
 
 export const bootstrapEthereum = (chainId: number = Number(CHAIN_ID)) => {
   // Wallet Classification Service
