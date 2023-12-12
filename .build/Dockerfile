@@ -20,5 +20,6 @@ COPY .yarn .yarn
 RUN yarn install
 COPY . .
 ARG NODE_ENV=production
-RUN yarn build
+ENV NODE_ENV="${NODE_ENV}"
+RUN yarn build:dev
 CMD ["yarn", "start"]

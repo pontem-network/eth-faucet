@@ -6,6 +6,8 @@
     "create-wallet": "ts-node ./_scripts/createWallet.ts",
     "dev": "next dev",
     "build": "next build",
+    "build:dev": "cp .env.dev .env.local && yarn build",
+    "build:prod": "cp .env.prod .env.local && yarn build",
     "start": "next start",
     "lint": "next lint"
   },
