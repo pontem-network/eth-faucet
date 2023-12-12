@@ -12,7 +12,7 @@ import poolsSvg from '../assets/pools.svg';
 import stakingSvg from '../assets/staking.svg';
 import statsSvg from '../assets/stats.svg';
 import swapWideSvg from '../assets/swap-wide.svg';
-import { SWAP_URL } from "@/constants";
+import { SWAP_URL } from "../../../constants";
 
 import { SocialButton } from './SocialButton';
 
