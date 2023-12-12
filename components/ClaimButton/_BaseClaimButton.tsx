@@ -1,5 +1,5 @@
 import LoadingButton from "@mui/lab/LoadingButton"
-import { PontemL2, useEthers } from "@usedapp/core"
+import { useEthers } from "@usedapp/core"
 import { isNil } from "lodash"
 import Link from "next/link"
 import { hasMetamask } from "../../hooks/hasMetamask"
@@ -7,6 +7,7 @@ import { claimTokens, retrieveNonce } from "../../services/HttpClient"
 import { messageTemplate } from "../../utils/textMessage"
 import { Button } from './Button';
 import { JsonRpcProvider } from "@ethersproject/providers";
+import { CHAIN_ID } from '../../constants';
 
 
 type BaseClaimButtonProps = {
@@ -67,9 +68,9 @@ export const BaseClaimButton = ({ onSuccess, onError, retrieveCaptcha }: BaseCla
     )
   }
 
-  if (chainId !== PontemL2.chainId) {
+  if (chainId !== Number(CHAIN_ID)) {
     return (
-      <Button onClick={() => switchNetwork(PontemL2.chainId)} >
+      <Button onClick={() => switchNetwork(Number(CHAIN_ID))} >
         SWITCH TO LUMIO L2 NETWORK
       </Button>
     )
