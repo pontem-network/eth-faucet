@@ -28,10 +28,9 @@ const handler = async (req: NextApiRequest, res: NextApiResponse<DefaultResponse
 
     const { address, message, signature, captcha: captchaToken }: ClaimParams = req.body
 
-    // TODO(mateusz): Refactor bootstrapTransactionHistory. The current implementation is hairy
-    // Start of IP detection
+    const fakeToken = (new Date().getTime() + 20)
     const whiteListResponse = await fetch(
-      'https://raw.githubusercontent.com/pontem-network/eth-faucet-whitelist/main/src/evm.whiteList.json',
+      'https://raw.githubusercontent.com/pontem-network/eth-faucet-whitelist/main/src/evm.whiteList.json?token=fakeToken',
       {cache: "no-store"}
     );
 

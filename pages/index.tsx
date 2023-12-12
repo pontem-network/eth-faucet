@@ -45,18 +45,29 @@ const reducer = (_: State, action: Action): State => {
   }
 }
 
-const getBalance = async () => {
-
-}
-
 const Home: NextPage = () => {
   const { account } = useEthers()
   const [state, dispatch] = useReducer(reducer, initialState)
   const [balance, setBalance] = useState('');
   const [retrieveAmount] = useWalletClassification()
 
+  const getBalance = async () => {
+    if (!account) {
+      setBalance('');
+      return;
+    };
+    const _balance = await web3.eth.getBalance(account);
+    let etherBalance = web3.utils.fromWei(_balance, 'ether');
+    if (etherBalance === '0.') etherBalance = '0';
+    setBalance(etherBalance);
+  }
 
-  const handleSuccess = () => dispatch({ type: "success" })
+  const handleSuccess = () => {
+    dispatch({type: "success"});
+    setTimeout(() => {
+      getBalance();
+    }, 3000)
+  }
 
   const handleError = (error: string) => dispatch({ type: "error", error })
 
@@ -81,17 +92,6 @@ const Home: NextPage = () => {
   }, [account])
 
   useEffect(() => {
-    if (!account) {
-      setBalance('');
-      return;
-    };
-    const getBalance = async () => {
-      const _balance = await web3.eth.getBalance(account);
-      let etherBalance = web3.utils.fromWei(_balance, 'ether');
-      if (etherBalance === '0.') etherBalance = '0';
-      setBalance(etherBalance);
-    }
-
     getBalance();
   }, [account])
 
@@ -100,7 +100,7 @@ const Home: NextPage = () => {
       <ItemsWrapper>
         <Item>
           <span>Wallet balance</span>
-          <span>{balance ? balance : <>&ndash;</>} ETH (testnet)</span>
+          <span>{balance ? parseFloat(Number(balance).toFixed(6)) : <>&ndash;</>} ETH (testnet)</span>
         </Item>
         <Item>
           <span>Claimable Lumio L2 ETH</span>

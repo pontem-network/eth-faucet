@@ -1,7 +1,7 @@
 import { Alert as MuiAlert, AlertProps, styled } from "@mui/material"
 
 
-const StyledAlert = styled(MuiAlert)(({ theme }) => ({
+const StyledAlert = styled(MuiAlert)(({ theme, severity }) => ({
   marginTop: theme.spacing(2),
   border: "1.5px solid #FFBB1299",
   borderRadius: "16px",
@@ -12,7 +12,7 @@ const StyledAlert = styled(MuiAlert)(({ theme }) => ({
   width: "100%",
 
   "svg": {
-    color: "#B4861A",
+    color: severity === "success" ? "#55b84b" : "#B4861A",
   }
 }))
 
