@@ -12,6 +12,7 @@ import poolsSvg from '../assets/pools.svg';
 import stakingSvg from '../assets/staking.svg';
 import statsSvg from '../assets/stats.svg';
 import swapWideSvg from '../assets/swap-wide.svg';
+import { SWAP_URL } from "@/constants";
 
 import { SocialButton } from './SocialButton';
 
@@ -35,7 +36,7 @@ const topListItemTemplate = (item: any, _options: any) => {
     return (
       <a
         className="p-menuitem-link"
-        href="https://l2.swap.devops.mom/"
+        href={SWAP_URL}
         rel="noreferrer noopenner"
       >
         {item.icon && <span className={classNames('p-menuitem-icon', item.icon)}></span>}
@@ -61,7 +62,7 @@ const topListItemTemplate = (item: any, _options: any) => {
   return (
     <a
       className={classNames('p-menuitem-link')}
-      href={`https://l2.swap.devops.mom/#/${item.name}`}
+      href={`${SWAP_URL}#/${item.name}`}
       rel="noreferrer noopenner"
     >
       {item.icon && <span className={classNames('p-menuitem-icon', item.icon)}></span>}
@@ -95,7 +96,7 @@ const earnListItemTemplate = (item: any, _options: any) => {
   return (
     <a
       className={classNames('p-menuitem-link')}
-      href={`https://l2.swap.devops.mom/#/${item.name}`}
+      href={`${SWAP_URL}#/${item.name}`}
       rel="noreferrer noopenner"
     >
       {item.icon && <span className={classNames('p-menuitem-icon', item.icon)}></span>}

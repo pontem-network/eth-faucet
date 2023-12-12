@@ -1,9 +1,11 @@
+import { SWAP_URL } from "../../constants";
+
 export const headerLinksList = [
     {
         desktopIcon: 'swap',
         label: 'Swap',
         name: 'swap',
-        url: 'https://l2.swap.devops.mom/#/',
+        url: SWAP_URL,
         to: { name: 'swap' },
     },
     {
@@ -12,7 +14,7 @@ export const headerLinksList = [
             {
                 label: 'Pools',
                 name: 'pools',
-                url: 'https://l2.swap.devops.mom/#/pools',
+                url: `${SWAP_URL}#/pools`,
                 to: { name: 'pools' },
                 icon: 'earn-link earn-link_type_pools',
             },
