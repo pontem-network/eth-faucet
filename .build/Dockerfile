@@ -21,5 +21,5 @@ RUN yarn install
 COPY . .
 ARG NODE_ENV=production
 ENV NODE_ENV="${NODE_ENV}"
-RUN yarn build:dev
+RUN if [[ "${NODE_ENV}" == 'production' ]]; then yarn build:prod; else yarn build:dev; fi
 CMD ["yarn", "start"]
