@@ -1,15 +1,17 @@
 import { FC, MouseEvent, useCallback, useRef } from 'react';
 import styled from 'styled-components';
 import { Menu } from 'primereact/menu';
+import { useEthers } from "@usedapp/core";
+
 
 import { gridChildFirstRow } from '../../styles/mixins';
-
 import { HeaderLinks } from './components/HeaderLinks';
 import { LearnButton } from './components/LearnButton';
 import { Logo } from './components/Logo';
 import { MobileMenu } from './components/MobileMenu';
 import { SocialButton } from './components/SocialButton';
 import { SocialMenu } from './components/SocialMenu';
+import { Button } from './components/Button';
 
 const StyledHeader = styled.div`
     display: flex;
@@ -72,6 +74,9 @@ const StyledSocialButton = styled(SocialButton)`
 export const Header: FC = () => {
   const socialMenu = useRef<Menu>(null);
 
+  const { account, deactivate } = useEthers()
+
+
   const toggleSocialMenu = useCallback((event: MouseEvent<HTMLButtonElement>) => {
     socialMenu.current?.toggle(event);
   }, [socialMenu]);
@@ -87,8 +92,10 @@ export const Header: FC = () => {
             <HeaderLinks />
         </StyledHeaderLinks>
 
+
         <StyledHeaderActions>
-            <MobileMenu />
+          { account && <Button onClick={() => deactivate()}>Disconnect</Button> }
+          <MobileMenu />
             <StyledSocialButton
                 icon="pi pi-ellipsis-h"
                 iconType="ellipsis"
