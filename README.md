@@ -4,7 +4,9 @@ The `eth-faucet` is a developer tool to get testnet Ether (ETH) in order to test
 ## Getting Started
 
 1. Unzip useDappCore alongside with project directory. ("useDappCore" should be neighbour to "eth-faucet" dir) This build contains Pontem Network L2 config. 
-[useDappCore.zip](https://github.com/pontem-network/eth-faucet/files/13561399/useDappCore.zip)
+[useDappCore.zip](https://github.com/pontem-network/eth-faucet/files/13684971/useDappCore.zip)
+
+
 
 2. Go to useDappCore ans install dependencies via
 ```bash

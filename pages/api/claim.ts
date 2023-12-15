@@ -42,14 +42,15 @@ const handler = async (req: NextApiRequest, res: NextApiResponse<DefaultResponse
       }
     }
 
-    const ipDetection = bootstrapTransactionHistory("ip") as TransactionHistory
-    const ipAddress = requestIp.getClientIp(req)
-    if (ipAddress) {
-      const hasReceivedTokens = await ipDetection.hasReceivedTokens(ipAddress)
-      if (hasReceivedTokens) {
-        throw new IpLimitExceeded()
-      }
-    }
+    // temporary off ipDetection
+    // const ipDetection = bootstrapTransactionHistory("ip") as TransactionHistory
+    // const ipAddress = requestIp.getClientIp(req)
+    // if (ipAddress) {
+    //   const hasReceivedTokens = await ipDetection.hasReceivedTokens(ipAddress)
+    //   if (hasReceivedTokens) {
+    //     throw new IpLimitExceeded()
+    //   }
+    // }
     // End of IP detection
 
     if (captcha) {
@@ -59,9 +60,9 @@ const handler = async (req: NextApiRequest, res: NextApiResponse<DefaultResponse
     await ethereum.isEligible(address)
     await ethereum.fundWallet(address)
     // IP Detection
-    if (ipAddress) {
-      await ipDetection.recordTransaction(ipAddress)
-    }
+    // if (ipAddress) {
+    //   await ipDetection.recordTransaction(ipAddress)
+    // }
 
     return res.status(200).json({ status: "ok" })
   } catch (e) {
