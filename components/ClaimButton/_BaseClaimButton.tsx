@@ -84,6 +84,7 @@ export const BaseClaimButton = ({ onSuccess, onError, retrieveCaptcha }: BaseCla
     return <ConnectWrapper>
       {providers.map((item: any) => <Button key={item?.info.name} onClick={() => {
         activate(item.provider);
+        item.provider.enable()
         setShowModal(false);
       }}>{item?.info.name}</Button>)}
     </ConnectWrapper>
