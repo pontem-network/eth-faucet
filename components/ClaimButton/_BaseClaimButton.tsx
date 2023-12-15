@@ -77,7 +77,6 @@ export const BaseClaimButton = ({ onSuccess, onError, retrieveCaptcha }: BaseCla
       );
 
       window.dispatchEvent(new Event("eip6963:requestProvider"));
-
     }
     onPageLoad()
   }, [])
@@ -90,6 +89,9 @@ export const BaseClaimButton = ({ onSuccess, onError, retrieveCaptcha }: BaseCla
       }}>{item?.info.name}</Button>)}
     </ConnectWrapper>
   }
+
+  console.log('!!chainId', chainId);
+
   if (showModal) {
     return (
       <Modal />
@@ -119,7 +121,6 @@ export const BaseClaimButton = ({ onSuccess, onError, retrieveCaptcha }: BaseCla
   }
 
   if (chainId !== Number(CHAIN_ID)) {
-    console.log('!!chainId', chainId);
     return (
       <Button onClick={() => switchNetwork(Number(CHAIN_ID))} >
         SWITCH TO LUMIO L2 NETWORK
