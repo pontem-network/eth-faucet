@@ -72,7 +72,6 @@ export const BaseClaimButton = ({ onSuccess, onError, retrieveCaptcha }: BaseCla
         "eip6963:announceProvider",
         (event: any) => {
           addProvider(event.detail);
-          console.log('!!event.detail', event.detail)
         }
       );
 
@@ -89,8 +88,6 @@ export const BaseClaimButton = ({ onSuccess, onError, retrieveCaptcha }: BaseCla
       }}>{item?.info.name}</Button>)}
     </ConnectWrapper>
   }
-
-  console.log('!!chainId', chainId);
 
   if (showModal) {
     return (
