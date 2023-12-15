@@ -1,7 +1,7 @@
 FROM node:16.16
 
 ENV YARN_VERSION="3.2.2" \
-    DAPPCORE_URL="https://github.com/pontem-network/eth-faucet/files/13561399/useDappCore.zip"
+    DAPPCORE_URL="https://github.com/pontem-network/eth-faucet/files/13684257/useDappCore.zip"
 
 RUN apt update && \
     apt install -y zip && \
