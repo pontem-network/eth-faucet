@@ -1835,7 +1835,7 @@ __metadata:
 
 "@usedapp/core@file:../useDappCore::locator=eth-faucet%40workspace%3A.":
   version: 1.2.17
-  resolution: "@usedapp/core@file:../useDappCore#../useDappCore::hash=92f157&locator=eth-faucet%40workspace%3A."
+  resolution: "@usedapp/core@file:../useDappCore#../useDappCore::hash=6e976a&locator=eth-faucet%40workspace%3A."
   dependencies:
     "@metamask/detect-provider": ^2.0.0
     "@uniswap/token-lists": ^1.0.0-beta.27
@@ -1848,7 +1848,7 @@ __metadata:
     react: "*"
   bin:
     usedapp-generate-hooks: ./bin/usedapp-generate-hooks.js
-  checksum: e0f12c6ff48f3923aa8ea0ef8d8c87776374f047c7fc560b5ce9d3327aa46436e9fc5f47e7ad4e4049432f12dd113e7c48a4eb40ef63d52e59e11d65407d9881
+  checksum: 69042714dda1b6dbef5f0957d4b5d0936f74e52f6a83d00f893bd6a877ef553c447ec9de62f88f643d43c470d5ea83b07dfc038ccf24e0ad6fe9359d2992f786
   languageName: node
   linkType: hard
 

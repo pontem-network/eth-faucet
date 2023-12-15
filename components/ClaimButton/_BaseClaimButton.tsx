@@ -56,7 +56,7 @@ export const BaseClaimButton = ({ onSuccess, onError, retrieveCaptcha }: BaseCla
   const addProvider = (provider: any) => {
     // @ts-ignore
     setProviders((oldProviders) => {
-      const alreadyRegisteredProvider = oldProviders.find((item) => item?.info?.uuid === provider.info.uuid);
+      const alreadyRegisteredProvider = oldProviders.find((item: any) => item?.info?.uuid === provider.info.uuid);
       if (alreadyRegisteredProvider) {
         return oldProviders;
       }
