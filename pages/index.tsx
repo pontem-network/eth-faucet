@@ -10,7 +10,7 @@ import { Item, ItemsWrapper } from "../components/Item"
 import { FormWrapper }  from "../components/RoundedBox"
 import { useWalletClassification } from "../hooks/useWalletClassification"
 import { CHAIN_URL } from "../constants";
-import {JoinWaitingList} from "@/components/Modal/JoinWaitingList";
+import { JoinWaitingList } from "../components/Modal/JoinWaitingList";
 
 const web3 = new Web3(new Web3.providers.HttpProvider(CHAIN_URL));
 
@@ -83,9 +83,6 @@ const Home: NextPage = () => {
           </Alert>
         )
       case "error":
-        if (state.error === 'Your wallet address isn’t on the whitelist') {
-          setOpenModal(true);
-        }
         return <Alert severity="error">{state.error}</Alert>
       default:
         return null
@@ -105,6 +102,12 @@ const Home: NextPage = () => {
     getBalance();
   }, [account])
 
+  useEffect(() => {
+    if (state.error === 'Your wallet address isn’t on the whitelist') {
+      setOpenModal(true);
+    }
+  }, [state]);
+
   return (
     <FormWrapper>
       <ItemsWrapper>
@@ -119,7 +122,7 @@ const Home: NextPage = () => {
       </ItemsWrapper>
       <ClaimButton onSuccess={handleSuccess} onError={handleError} />
       {renderAlert()}
-      {openModal && <JoinWaitingList onClose={onCloseModal}/>}
+      {openModal && <JoinWaitingList onClose={() => onCloseModal()}/>}
     </FormWrapper>
   )
 }

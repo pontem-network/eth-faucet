@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import React, {useState} from 'react';
+import React, { ReactElement, JSXElementConstructor } from 'react';
 
 const Overlay = styled.div`
     position: absolute;
@@ -34,7 +34,7 @@ const CloseButton = styled.span`
     top: 20px;
 `
 
-export const Modal = ({ onClose, children })  => {
+export const Modal = ({ onClose, children }: { onClose: any, children: any})  => {
 
     const onCloseModal = () => {
         onClose();

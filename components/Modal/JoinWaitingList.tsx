@@ -87,7 +87,7 @@ export const JoinWaitingList = ({ onClose }: { onClose: () => void }) => {
                 </p>
                 <ButtonsGroup>
                     <Button onClick={onClose}>Close</Button>
-                    <Button onClick={onJoinClick}>Join</Button>
+                    <Button onClick={() => onJoinClick()}>Join</Button>
                 </ButtonsGroup>
             </Body>
         </Modal>
