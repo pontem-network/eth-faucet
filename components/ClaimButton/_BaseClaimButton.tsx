@@ -98,9 +98,9 @@ export const BaseClaimButton = ({ onSuccess, onError, retrieveCaptcha }: BaseCla
 
   if (!installed) {
     return (
-      <Link href="https://metamask.io/download/" passHref>
+      <Link href="https://onelink.to/t3sae5" passHref>
         <Button>
-          INSTALL METAMASK
+          INSTALL PONTEM
         </Button>
       </Link>
     )
